@@ -1,0 +1,316 @@
+amazon-ebs output will be in this color.
+
+==> amazon-ebs: Prevalidating AMI Name: docker-production-aws-ecs-base 1559728071
+    amazon-ebs: Found Image ID: ami-0a9f5be2a016dccad
+==> amazon-ebs: Creating temporary keypair: packer_5cf78fc7-bf57-870a-b100-f22a2dd643cc
+==> amazon-ebs: Creating temporary security group for this instance: packer_5cf78fcd-edde-85e7-2bde-e909266d4792
+==> amazon-ebs: Authorizing access to port 22 from [0.0.0.0/0] in the temporary security groups...
+==> amazon-ebs: Launching a source AWS instance...
+==> amazon-ebs: Adding tags to source instance
+    amazon-ebs: Adding tag: "Name": "Packer Builder"
+    amazon-ebs: Instance ID: i-05bfdd1b798809f6b
+==> amazon-ebs: Waiting for instance (i-05bfdd1b798809f6b) to become ready...
+==> amazon-ebs: Using ssh communicator to connect: 18.236.178.132
+==> amazon-ebs: Waiting for SSH to become available...
+==> amazon-ebs: Connected to SSH!
+==> amazon-ebs: Provisioning with shell script: scripts/configure-timezone.sh
+    amazon-ebs: ### Setting timezone to America/Los_Angeles ###
+==> amazon-ebs: Provisioning with shell script: scripts/install-os-packages.sh
+    amazon-ebs: Loaded plugins: priorities, update-motd, upgrade-helper
+    amazon-ebs: Resolving Dependencies
+    amazon-ebs: --> Running transaction check
+    amazon-ebs: ---> Package amazon-linux-extras.noarch 0:1.6.7-1.amzn2 will be updated
+    amazon-ebs: ---> Package amazon-linux-extras.noarch 0:1.6.8-1.amzn2 will be an update
+    amazon-ebs: ---> Package kernel.x86_64 0:4.14.121-109.96.amzn2 will be installed
+    amazon-ebs: --> Processing Dependency: microcode_ctl >= 2:2.1-47 for package: kernel-4.14.121-109.96.amzn2.x86_64
+    amazon-ebs: ---> Package openssh.x86_64 0:7.4p1-16.amzn2.0.5 will be updated
+    amazon-ebs: ---> Package openssh.x86_64 0:7.4p1-16.amzn2.0.6 will be an update
+    amazon-ebs: ---> Package openssh-clients.x86_64 0:7.4p1-16.amzn2.0.5 will be updated
+    amazon-ebs: ---> Package openssh-clients.x86_64 0:7.4p1-16.amzn2.0.6 will be an update
+    amazon-ebs: ---> Package openssh-server.x86_64 0:7.4p1-16.amzn2.0.5 will be updated
+    amazon-ebs: ---> Package openssh-server.x86_64 0:7.4p1-16.amzn2.0.6 will be an update
+    amazon-ebs: ---> Package python-urllib3.noarch 0:1.24.1-1.amzn2.0.1 will be updated
+    amazon-ebs: ---> Package python-urllib3.noarch 0:1.24.3-1.amzn2.0.1 will be an update
+    amazon-ebs: --> Running transaction check
+    amazon-ebs: ---> Package microcode_ctl.x86_64 2:2.1-47.amzn2.0.3 will be installed
+    amazon-ebs: --> Finished Dependency Resolution
+    amazon-ebs:
+    amazon-ebs: Dependencies Resolved
+    amazon-ebs:
+    amazon-ebs: ================================================================================
+    amazon-ebs:  Package                Arch      Version                   Repository     Size
+    amazon-ebs: ================================================================================
+    amazon-ebs: Installing:
+    amazon-ebs:  kernel                 x86_64    4.14.121-109.96.amzn2     amzn2-core     20 M
+    amazon-ebs: Updating:
+    amazon-ebs:  amazon-linux-extras    noarch    1.6.8-1.amzn2             amzn2-core     35 k
+    amazon-ebs:  openssh                x86_64    7.4p1-16.amzn2.0.6        amzn2-core    509 k
+    amazon-ebs:  openssh-clients        x86_64    7.4p1-16.amzn2.0.6        amzn2-core    657 k
+    amazon-ebs:  openssh-server         x86_64    7.4p1-16.amzn2.0.6        amzn2-core    461 k
+    amazon-ebs:  python-urllib3         noarch    1.24.3-1.amzn2.0.1        amzn2-core    165 k
+    amazon-ebs: Installing for dependencies:
+    amazon-ebs:  microcode_ctl          x86_64    2:2.1-47.amzn2.0.3        amzn2-core    105 k
+    amazon-ebs:
+    amazon-ebs: Transaction Summary
+    amazon-ebs: ================================================================================
+    amazon-ebs: Install  1 Package  (+1 Dependent package)
+    amazon-ebs: Upgrade  5 Packages
+    amazon-ebs:
+    amazon-ebs: Total download size: 22 M
+    amazon-ebs: Downloading packages:
+    amazon-ebs: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+    amazon-ebs: --------------------------------------------------------------------------------
+    amazon-ebs: Total                                               25 MB/s |  22 MB  00:00
+    amazon-ebs: Running transaction check
+    amazon-ebs: Running transaction test
+    amazon-ebs: Transaction test succeeded
+    amazon-ebs: Running transaction
+    amazon-ebs:   Updating   : openssh-7.4p1-16.amzn2.0.6.x86_64                           1/12
+    amazon-ebs:   Installing : 2:microcode_ctl-2.1-47.amzn2.0.3.x86_64                     2/12
+    amazon-ebs:   Installing : kernel-4.14.121-109.96.amzn2.x86_64                         3/12
+    amazon-ebs:   Updating   : openssh-server-7.4p1-16.amzn2.0.6.x86_64                    4/12
+    amazon-ebs:   Updating   : openssh-clients-7.4p1-16.amzn2.0.6.x86_64                   5/12
+    amazon-ebs:   Updating   : amazon-linux-extras-1.6.8-1.amzn2.noarch                    6/12
+    amazon-ebs:   Updating   : python-urllib3-1.24.3-1.amzn2.0.1.noarch                    7/12
+    amazon-ebs:   Cleanup    : openssh-clients-7.4p1-16.amzn2.0.5.x86_64                   8/12
+    amazon-ebs:   Cleanup    : openssh-server-7.4p1-16.amzn2.0.5.x86_64                    9/12
+    amazon-ebs:   Cleanup    : amazon-linux-extras-1.6.7-1.amzn2.noarch                   10/12
+    amazon-ebs:   Cleanup    : python-urllib3-1.24.1-1.amzn2.0.1.noarch                   11/12
+    amazon-ebs:   Cleanup    : openssh-7.4p1-16.amzn2.0.5.x86_64                          12/12
+    amazon-ebs:   Verifying  : kernel-4.14.121-109.96.amzn2.x86_64                         1/12
+    amazon-ebs:   Verifying  : openssh-server-7.4p1-16.amzn2.0.6.x86_64                    2/12
+    amazon-ebs:   Verifying  : python-urllib3-1.24.3-1.amzn2.0.1.noarch                    3/12
+    amazon-ebs:   Verifying  : 2:microcode_ctl-2.1-47.amzn2.0.3.x86_64                     4/12
+    amazon-ebs:   Verifying  : openssh-7.4p1-16.amzn2.0.6.x86_64                           5/12
+    amazon-ebs:   Verifying  : amazon-linux-extras-1.6.8-1.amzn2.noarch                    6/12
+    amazon-ebs:   Verifying  : openssh-clients-7.4p1-16.amzn2.0.6.x86_64                   7/12
+    amazon-ebs:   Verifying  : amazon-linux-extras-1.6.7-1.amzn2.noarch                    8/12
+    amazon-ebs:   Verifying  : openssh-7.4p1-16.amzn2.0.5.x86_64                           9/12
+    amazon-ebs:   Verifying  : python-urllib3-1.24.1-1.amzn2.0.1.noarch                   10/12
+    amazon-ebs:   Verifying  : openssh-server-7.4p1-16.amzn2.0.5.x86_64                   11/12
+    amazon-ebs:   Verifying  : openssh-clients-7.4p1-16.amzn2.0.5.x86_64                  12/12
+    amazon-ebs:
+    amazon-ebs: Installed:
+    amazon-ebs:   kernel.x86_64 0:4.14.121-109.96.amzn2
+    amazon-ebs:
+    amazon-ebs: Dependency Installed:
+    amazon-ebs:   microcode_ctl.x86_64 2:2.1-47.amzn2.0.3
+    amazon-ebs:
+    amazon-ebs: Updated:
+    amazon-ebs:   amazon-linux-extras.noarch 0:1.6.8-1.amzn2
+    amazon-ebs:   openssh.x86_64 0:7.4p1-16.amzn2.0.6
+    amazon-ebs:   openssh-clients.x86_64 0:7.4p1-16.amzn2.0.6
+    amazon-ebs:   openssh-server.x86_64 0:7.4p1-16.amzn2.0.6
+    amazon-ebs:   python-urllib3.noarch 0:1.24.3-1.amzn2.0.1
+    amazon-ebs:
+    amazon-ebs: Complete!
+    amazon-ebs: ### Installing extra packages: awslogs jq aws-cfn-bootstrap ###
+    amazon-ebs: Loaded plugins: priorities, update-motd, upgrade-helper
+    amazon-ebs: Resolving Dependencies
+    amazon-ebs: --> Running transaction check
+    amazon-ebs: ---> Package aws-cfn-bootstrap.noarch 0:1.4-31.amzn2 will be installed
+    amazon-ebs: --> Processing Dependency: python-daemon for package: aws-cfn-bootstrap-1.4-31.amzn2.noarch
+    amazon-ebs: --> Processing Dependency: pystache for package: aws-cfn-bootstrap-1.4-31.amzn2.noarch
+    amazon-ebs: ---> Package awslogs.noarch 0:1.1.4-3.amzn2 will be installed
+    amazon-ebs: --> Processing Dependency: aws-cli-plugin-cloudwatch-logs for package: awslogs-1.1.4-3.amzn2.noarch
+    amazon-ebs: ---> Package jq.x86_64 0:1.5-1.amzn2.0.2 will be installed
+    amazon-ebs: --> Processing Dependency: libonig.so.2()(64bit) for package: jq-1.5-1.amzn2.0.2.x86_64
+    amazon-ebs: --> Running transaction check
+    amazon-ebs: ---> Package aws-cli-plugin-cloudwatch-logs.noarch 0:1.4.4-1.amzn2.0.1 will be installed
+    amazon-ebs: --> Processing Dependency: python-dateutil >= 2.1 for package: aws-cli-plugin-cloudwatch-logs-1.4.4-1.amzn2.0.1.noarch
+    amazon-ebs: --> Processing Dependency: awscli >= 1.11.41 for package: aws-cli-plugin-cloudwatch-logs-1.4.4-1.amzn2.0.1.noarch
+    amazon-ebs: ---> Package oniguruma.x86_64 0:5.9.6-1.amzn2 will be installed
+    amazon-ebs: ---> Package pystache.noarch 0:0.5.3-2.amzn2 will be installed
+    amazon-ebs: --> Processing Dependency: python-simplejson for package: pystache-0.5.3-2.amzn2.noarch
+    amazon-ebs: ---> Package python-daemon.noarch 0:1.6-4.amzn2 will be installed
+    amazon-ebs: --> Processing Dependency: python-lockfile for package: python-daemon-1.6-4.amzn2.noarch
+    amazon-ebs: --> Running transaction check
+    amazon-ebs: ---> Package awscli.noarch 0:1.16.102-1.amzn2.0.1 will be installed
+    amazon-ebs: --> Processing Dependency: python2-botocore = 1.12.92 for package: awscli-1.16.102-1.amzn2.0.1.noarch
+    amazon-ebs: --> Processing Dependency: python2-s3transfer for package: awscli-1.16.102-1.amzn2.0.1.noarch
+    amazon-ebs: --> Processing Dependency: python-rsa for package: awscli-1.16.102-1.amzn2.0.1.noarch
+    amazon-ebs: --> Processing Dependency: python-docutils for package: awscli-1.16.102-1.amzn2.0.1.noarch
+    amazon-ebs: --> Processing Dependency: python-colorama for package: awscli-1.16.102-1.amzn2.0.1.noarch
+    amazon-ebs: ---> Package python-lockfile.noarch 1:0.9.1-4.amzn2 will be installed
+    amazon-ebs: ---> Package python-simplejson.x86_64 0:3.2.0-1.amzn2.0.2 will be installed
+    amazon-ebs: ---> Package python2-dateutil.noarch 1:2.6.0-3.amzn2.0.1 will be installed
+    amazon-ebs: --> Running transaction check
+    amazon-ebs: ---> Package python-colorama.noarch 0:0.3.2-3.amzn2 will be installed
+    amazon-ebs: ---> Package python-docutils.noarch 0:0.12-0.2.20140510svn7747.amzn2 will be installed
+    amazon-ebs: --> Processing Dependency: python-imaging for package: python-docutils-0.12-0.2.20140510svn7747.amzn2.noarch
+    amazon-ebs: ---> Package python2-botocore.noarch 0:1.12.92-2.amzn2.0.1 will be installed
+    amazon-ebs: --> Processing Dependency: python-jmespath >= 0.9.3 for package: python2-botocore-1.12.92-2.amzn2.0.1.noarch
+    amazon-ebs: ---> Package python2-rsa.noarch 0:3.4.1-1.amzn2 will be installed
+    amazon-ebs: ---> Package python2-s3transfer.noarch 0:0.1.12-1.amzn2.0.1 will be installed
+    amazon-ebs: --> Processing Dependency: python-futures for package: python2-s3transfer-0.1.12-1.amzn2.0.1.noarch
+    amazon-ebs: --> Running transaction check
+    amazon-ebs: ---> Package python-pillow.x86_64 0:2.0.0-19.gitd1c6db8.amzn2.0.2 will be installed
+    amazon-ebs: --> Processing Dependency: libtiff.so.5(LIBTIFF_4.0)(64bit) for package: python-pillow-2.0.0-19.gitd1c6db8.amzn2.0.2.x86_64
+    amazon-ebs: --> Processing Dependency: libjpeg.so.62(LIBJPEG_6.2)(64bit) for package: python-pillow-2.0.0-19.gitd1c6db8.amzn2.0.2.x86_64
+    amazon-ebs: --> Processing Dependency: libwebp.so.4()(64bit) for package: python-pillow-2.0.0-19.gitd1c6db8.amzn2.0.2.x86_64
+    amazon-ebs: --> Processing Dependency: libtiff.so.5()(64bit) for package: python-pillow-2.0.0-19.gitd1c6db8.amzn2.0.2.x86_64
+    amazon-ebs: --> Processing Dependency: libjpeg.so.62()(64bit) for package: python-pillow-2.0.0-19.gitd1c6db8.amzn2.0.2.x86_64
+    amazon-ebs: ---> Package python2-futures.noarch 0:3.0.5-1.amzn2 will be installed
+    amazon-ebs: ---> Package python2-jmespath.noarch 0:0.9.3-1.amzn2.0.1 will be installed
+    amazon-ebs: --> Running transaction check
+    amazon-ebs: ---> Package libjpeg-turbo.x86_64 0:1.2.90-5.amzn2.0.3 will be installed
+    amazon-ebs: ---> Package libtiff.x86_64 0:4.0.3-27.amzn2.0.2 will be installed
+    amazon-ebs: --> Processing Dependency: libjbig.so.2.0()(64bit) for package: libtiff-4.0.3-27.amzn2.0.2.x86_64
+    amazon-ebs: ---> Package libwebp.x86_64 0:0.3.0-7.amzn2 will be installed
+    amazon-ebs: --> Running transaction check
+    amazon-ebs: ---> Package jbigkit-libs.x86_64 0:2.0-11.amzn2.0.2 will be installed
+    amazon-ebs: --> Finished Dependency Resolution
+    amazon-ebs:
+    amazon-ebs: Dependencies Resolved
+    amazon-ebs:
+    amazon-ebs: ================================================================================
+    amazon-ebs:  Package                 Arch   Version                        Repository  Size
+    amazon-ebs: ================================================================================
+    amazon-ebs: Installing:
+    amazon-ebs:  aws-cfn-bootstrap       noarch 1.4-31.amzn2                   amzn2-core 651 k
+    amazon-ebs:  awslogs                 noarch 1.1.4-3.amzn2                  amzn2-core 8.2 k
+    amazon-ebs:  jq                      x86_64 1.5-1.amzn2.0.2                amzn2-core 154 k
+    amazon-ebs: Installing for dependencies:
+    amazon-ebs:  aws-cli-plugin-cloudwatch-logs
+    amazon-ebs:                          noarch 1.4.4-1.amzn2.0.1              amzn2-core  62 k
+    amazon-ebs:  awscli                  noarch 1.16.102-1.amzn2.0.1           amzn2-core 1.2 M
+    amazon-ebs:  jbigkit-libs            x86_64 2.0-11.amzn2.0.2               amzn2-core  47 k
+    amazon-ebs:  libjpeg-turbo           x86_64 1.2.90-5.amzn2.0.3             amzn2-core 134 k
+    amazon-ebs:  libtiff                 x86_64 4.0.3-27.amzn2.0.2             amzn2-core 174 k
+    amazon-ebs:  libwebp                 x86_64 0.3.0-7.amzn2                  amzn2-core 173 k
+    amazon-ebs:  oniguruma               x86_64 5.9.6-1.amzn2                  amzn2-core 129 k
+    amazon-ebs:  pystache                noarch 0.5.3-2.amzn2                  amzn2-core 128 k
+    amazon-ebs:  python-colorama         noarch 0.3.2-3.amzn2                  amzn2-core  25 k
+    amazon-ebs:  python-daemon           noarch 1.6-4.amzn2                    amzn2-core  26 k
+    amazon-ebs:  python-docutils         noarch 0.12-0.2.20140510svn7747.amzn2 amzn2-core 1.5 M
+    amazon-ebs:  python-lockfile         noarch 1:0.9.1-4.amzn2                amzn2-core  28 k
+    amazon-ebs:  python-pillow           x86_64 2.0.0-19.gitd1c6db8.amzn2.0.2  amzn2-core 442 k
+    amazon-ebs:  python-simplejson       x86_64 3.2.0-1.amzn2.0.2              amzn2-core 170 k
+    amazon-ebs:  python2-botocore        noarch 1.12.92-2.amzn2.0.1            amzn2-core 3.6 M
+    amazon-ebs:  python2-dateutil        noarch 1:2.6.0-3.amzn2.0.1            amzn2-core 245 k
+    amazon-ebs:  python2-futures         noarch 3.0.5-1.amzn2                  amzn2-core  27 k
+    amazon-ebs:  python2-jmespath        noarch 0.9.3-1.amzn2.0.1              amzn2-core  42 k
+    amazon-ebs:  python2-rsa             noarch 3.4.1-1.amzn2                  amzn2-core  68 k
+    amazon-ebs:  python2-s3transfer      noarch 0.1.12-1.amzn2.0.1             amzn2-core  89 k
+    amazon-ebs:
+    amazon-ebs: Transaction Summary
+    amazon-ebs: ================================================================================
+    amazon-ebs: Install  3 Packages (+20 Dependent packages)
+    amazon-ebs:
+    amazon-ebs: Total download size: 9.1 M
+    amazon-ebs: Installed size: 55 M
+    amazon-ebs: Downloading packages:
+    amazon-ebs: --------------------------------------------------------------------------------
+    amazon-ebs: Total                                               16 MB/s | 9.1 MB  00:00
+    amazon-ebs: Running transaction check
+    amazon-ebs: Running transaction test
+    amazon-ebs: Transaction test succeeded
+    amazon-ebs: Running transaction
+    amazon-ebs:   Installing : 1:python2-dateutil-2.6.0-3.amzn2.0.1.noarch                 1/23
+    amazon-ebs:   Installing : libjpeg-turbo-1.2.90-5.amzn2.0.3.x86_64                     2/23
+    amazon-ebs:   Installing : python2-futures-3.0.5-1.amzn2.noarch                        3/23
+    amazon-ebs:   Installing : 1:python-lockfile-0.9.1-4.amzn2.noarch                      4/23
+    amazon-ebs:   Installing : python-daemon-1.6-4.amzn2.noarch                            5/23
+    amazon-ebs:   Installing : python2-rsa-3.4.1-1.amzn2.noarch                            6/23
+    amazon-ebs:   Installing : jbigkit-libs-2.0-11.amzn2.0.2.x86_64                        7/23
+    amazon-ebs:   Installing : libtiff-4.0.3-27.amzn2.0.2.x86_64                           8/23
+    amazon-ebs:   Installing : python-colorama-0.3.2-3.amzn2.noarch                        9/23
+    amazon-ebs:   Installing : python2-jmespath-0.9.3-1.amzn2.0.1.noarch                  10/23
+    amazon-ebs:   Installing : libwebp-0.3.0-7.amzn2.x86_64                               11/23
+    amazon-ebs:   Installing : python-pillow-2.0.0-19.gitd1c6db8.amzn2.0.2.x86_64         12/23
+    amazon-ebs:   Installing : python-docutils-0.12-0.2.20140510svn7747.amzn2.noarch      13/23
+    amazon-ebs:   Installing : python2-botocore-1.12.92-2.amzn2.0.1.noarch                14/23
+    amazon-ebs:   Installing : python2-s3transfer-0.1.12-1.amzn2.0.1.noarch               15/23
+    amazon-ebs:   Installing : awscli-1.16.102-1.amzn2.0.1.noarch                         16/23
+    amazon-ebs:   Installing : aws-cli-plugin-cloudwatch-logs-1.4.4-1.amzn2.0.1.noarch    17/23
+    amazon-ebs:   Installing : python-simplejson-3.2.0-1.amzn2.0.2.x86_64                 18/23
+    amazon-ebs:   Installing : pystache-0.5.3-2.amzn2.noarch                              19/23
+    amazon-ebs:   Installing : oniguruma-5.9.6-1.amzn2.x86_64                             20/23
+    amazon-ebs:   Installing : jq-1.5-1.amzn2.0.2.x86_64                                  21/23
+    amazon-ebs:   Installing : aws-cfn-bootstrap-1.4-31.amzn2.noarch                      22/23
+    amazon-ebs:   Installing : awslogs-1.1.4-3.amzn2.noarch                               23/23
+    amazon-ebs:   Verifying  : oniguruma-5.9.6-1.amzn2.x86_64                              1/23
+    amazon-ebs:   Verifying  : awslogs-1.1.4-3.amzn2.noarch                                2/23
+    amazon-ebs:   Verifying  : python-simplejson-3.2.0-1.amzn2.0.2.x86_64                  3/23
+    amazon-ebs:   Verifying  : aws-cfn-bootstrap-1.4-31.amzn2.noarch                       4/23
+    amazon-ebs:   Verifying  : python-pillow-2.0.0-19.gitd1c6db8.amzn2.0.2.x86_64          5/23
+    amazon-ebs:   Verifying  : pystache-0.5.3-2.amzn2.noarch                               6/23
+    amazon-ebs:   Verifying  : libwebp-0.3.0-7.amzn2.x86_64                                7/23
+    amazon-ebs:   Verifying  : python2-jmespath-0.9.3-1.amzn2.0.1.noarch                   8/23
+    amazon-ebs:   Verifying  : python-colorama-0.3.2-3.amzn2.noarch                        9/23
+    amazon-ebs:   Verifying  : jq-1.5-1.amzn2.0.2.x86_64                                  10/23
+    amazon-ebs:   Verifying  : libjpeg-turbo-1.2.90-5.amzn2.0.3.x86_64                    11/23
+    amazon-ebs:   Verifying  : libtiff-4.0.3-27.amzn2.0.2.x86_64                          12/23
+    amazon-ebs:   Verifying  : jbigkit-libs-2.0-11.amzn2.0.2.x86_64                       13/23
+    amazon-ebs:   Verifying  : python2-rsa-3.4.1-1.amzn2.noarch                           14/23
+    amazon-ebs:   Verifying  : awscli-1.16.102-1.amzn2.0.1.noarch                         15/23
+    amazon-ebs:   Verifying  : 1:python-lockfile-0.9.1-4.amzn2.noarch                     16/23
+    amazon-ebs:   Verifying  : python-daemon-1.6-4.amzn2.noarch                           17/23
+    amazon-ebs:   Verifying  : python2-futures-3.0.5-1.amzn2.noarch                       18/23
+    amazon-ebs:   Verifying  : 1:python2-dateutil-2.6.0-3.amzn2.0.1.noarch                19/23
+    amazon-ebs:   Verifying  : python2-botocore-1.12.92-2.amzn2.0.1.noarch                20/23
+    amazon-ebs:   Verifying  : python2-s3transfer-0.1.12-1.amzn2.0.1.noarch               21/23
+    amazon-ebs:   Verifying  : aws-cli-plugin-cloudwatch-logs-1.4.4-1.amzn2.0.1.noarch    22/23
+    amazon-ebs:   Verifying  : python-docutils-0.12-0.2.20140510svn7747.amzn2.noarch      23/23
+    amazon-ebs:
+    amazon-ebs: Installed:
+    amazon-ebs:   aws-cfn-bootstrap.noarch 0:1.4-31.amzn2     awslogs.noarch 0:1.1.4-3.amzn2
+    amazon-ebs:   jq.x86_64 0:1.5-1.amzn2.0.2
+    amazon-ebs:
+    amazon-ebs: Dependency Installed:
+    amazon-ebs:   aws-cli-plugin-cloudwatch-logs.noarch 0:1.4.4-1.amzn2.0.1
+    amazon-ebs:   awscli.noarch 0:1.16.102-1.amzn2.0.1
+    amazon-ebs:   jbigkit-libs.x86_64 0:2.0-11.amzn2.0.2
+    amazon-ebs:   libjpeg-turbo.x86_64 0:1.2.90-5.amzn2.0.3
+    amazon-ebs:   libtiff.x86_64 0:4.0.3-27.amzn2.0.2
+    amazon-ebs:   libwebp.x86_64 0:0.3.0-7.amzn2
+    amazon-ebs:   oniguruma.x86_64 0:5.9.6-1.amzn2
+    amazon-ebs:   pystache.noarch 0:0.5.3-2.amzn2
+    amazon-ebs:   python-colorama.noarch 0:0.3.2-3.amzn2
+    amazon-ebs:   python-daemon.noarch 0:1.6-4.amzn2
+    amazon-ebs:   python-docutils.noarch 0:0.12-0.2.20140510svn7747.amzn2
+    amazon-ebs:   python-lockfile.noarch 1:0.9.1-4.amzn2
+    amazon-ebs:   python-pillow.x86_64 0:2.0.0-19.gitd1c6db8.amzn2.0.2
+    amazon-ebs:   python-simplejson.x86_64 0:3.2.0-1.amzn2.0.2
+    amazon-ebs:   python2-botocore.noarch 0:1.12.92-2.amzn2.0.1
+    amazon-ebs:   python2-dateutil.noarch 1:2.6.0-3.amzn2.0.1
+    amazon-ebs:   python2-futures.noarch 0:3.0.5-1.amzn2
+    amazon-ebs:   python2-jmespath.noarch 0:0.9.3-1.amzn2.0.1
+    amazon-ebs:   python2-rsa.noarch 0:3.4.1-1.amzn2
+    amazon-ebs:   python2-s3transfer.noarch 0:0.1.12-1.amzn2.0.1
+    amazon-ebs:
+    amazon-ebs: Complete!
+==> amazon-ebs: Provisioning with shell script: scripts/cloud-init-options.sh
+==> amazon-ebs: Provisioning with shell script: scripts/cleanup.sh
+    amazon-ebs: ### Performing final clean-up tasks ###
+==> amazon-ebs: Redirecting to /bin/systemctl stop docker.service
+==> amazon-ebs: Note: Forwarding request to 'systemctl disable docker.service'.
+==> amazon-ebs: Uploading files/firstrun.sh => /home/ec2-user/firstrun.sh
+firstrun.sh 2.62 KiB / 2.62 KiB [===========================================================================] 100.00% 1s
+==> amazon-ebs: Stopping the source instance...
+    amazon-ebs: Stopping instance
+==> amazon-ebs: Waiting for the instance to stop...
+==> amazon-ebs: Creating AMI docker-production-aws-ecs-base 1559728071 from instance i-05bfdd1b798809f6b
+    amazon-ebs: AMI: ami-096f20a5c9b91fc65
+==> amazon-ebs: Waiting for AMI to become ready...
+==> amazon-ebs: Adding tags to AMI (ami-096f20a5c9b91fc65)...
+==> amazon-ebs: Tagging snapshot: snap-01203a54a59fdc0e7
+==> amazon-ebs: Creating AMI tags
+    amazon-ebs: Adding tag: "SourceAMI": "ami-0a9f5be2a016dccad"
+    amazon-ebs: Adding tag: "DockerVersion": "18.06.1-ce"
+    amazon-ebs: Adding tag: "ECSAgentVersion": "1.27.0"
+    amazon-ebs: Adding tag: "Name": "Docker Production AWS ECS Base Image"
+==> amazon-ebs: Creating snapshot tags
+==> amazon-ebs: Terminating the source AWS instance...
+==> amazon-ebs: Cleaning up any extra volumes...
+==> amazon-ebs: No volumes to clean up, skipping
+==> amazon-ebs: Deleting temporary security group...
+==> amazon-ebs: Deleting temporary keypair...
+==> amazon-ebs: Running post-processor: manifest
+Build 'amazon-ebs' finished.
+
+==> Builds finished. The artifacts of successful builds are:
+--> amazon-ebs: AMIs were created:
+us-west-2: ami-096f20a5c9b91fc65
+
+--> amazon-ebs:
